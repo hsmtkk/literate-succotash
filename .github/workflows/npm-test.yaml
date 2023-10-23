@@ -5,6 +5,10 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: .
     - name: install
       run: npm install
     - name: test
