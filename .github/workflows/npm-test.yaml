@@ -2,7 +2,7 @@
 name: npm-test
 on: push
 jobs:
-  first-job:
+  npm-test:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
