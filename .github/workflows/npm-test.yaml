@@ -1,0 +1,11 @@
+---
+name: npm-test
+on: push
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: install
+      run: npm install
+    - name: test
+      run: npm test
