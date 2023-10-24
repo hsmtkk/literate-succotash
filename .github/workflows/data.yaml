@@ -1,0 +1,22 @@
+---
+name: data
+on: push
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+    - name: setup-go
+      uses: actions/setup-go@v4
+      with:
+          go-version: 1.21
+    - name: test
+      run: go test
+    - name: build
+      run: CGO_ENABLED=0 go build -o main
+    - name: artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifact
+        path: main
