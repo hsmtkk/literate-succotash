@@ -12,6 +12,7 @@ jobs:
     - name: test
       run: npm test
   deploy:
+    needs: npm-test
     runs-on: ubuntu-latest
     steps:
     - name: checkout
