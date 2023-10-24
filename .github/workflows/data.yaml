@@ -24,3 +24,7 @@ jobs:
       with:
         name: artifact
         path: main
+    - name: run
+      run: go run .
+      env:
+        FOO: bar
