@@ -1,6 +1,8 @@
 ---
 name: npm-test
-on: push
+on:
+- push
+- workflow_dispatch
 jobs:
   npm-test:
     runs-on: ubuntu-latest
