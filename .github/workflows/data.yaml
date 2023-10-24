@@ -27,4 +27,5 @@ jobs:
     - name: run
       run: go run .
       env:
-        FOO: bar
+        FOO: foo
+        BAZ: ${{secrets.BAZ}}
