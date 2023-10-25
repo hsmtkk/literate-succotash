@@ -4,6 +4,11 @@ on: push
 jobs:
   data:
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7
+        ports:
+        - 6379:6379
     steps:
     - name: checkout
       uses: actions/checkout@v4
@@ -29,11 +34,3 @@ jobs:
       env:
         FOO: foo
         BAZ: ${{secrets.BAZ}}
-  inside-container:
-    runs-on: ubuntu-latest
-    container: golang:1.21
-    steps:
-    - name: checkout
-      uses: actions/checkout@v4
-    - name: test
-      run: go test
