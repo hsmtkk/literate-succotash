@@ -1,6 +1,7 @@
 package main_test
 
 import (
+	"context"
 	"testing"
 
 	"github.com/redis/go-redis/v9"
@@ -22,4 +23,11 @@ func TestRedis(t *testing.T) {
 		DB:       0,
 	})
 	defer clt.Close()
+	ctx := context.Background()
+	err := clt.Set(ctx, "key", "value", 0).Err()
+	assert.Nil(t, err)
+
+	val, err := clt.Get(ctx, "key").Result()
+	assert.Nil(t, err)
+	assert.Equal(t, val, "value")
 }
